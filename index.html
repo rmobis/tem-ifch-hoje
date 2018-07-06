@@ -65,6 +65,7 @@
 			<h1 class="yesno d-none">Não</h1>
 			<p class="lead-no lead d-none">Estamos há <span class="odometer">0</span> dias sem festa no IFCH.</p>
 			<p class="lead-yes lead d-none">Hoje vai rolar <b class="party-name">0</b>!</p>
+			<p class="feec text-small d-none">Que tal dar uma passadinha na FEEC?</p>
 		</main>
 
 		<footer>
@@ -94,6 +95,7 @@
 			let yesNo = document.querySelector('.yesno'),
 				leadY = document.querySelector('.lead-yes')
 				leadN = document.querySelector('.lead-no'),
+				FEEC  = document.querySelector('.feec'),
 				pName = document.querySelector('.party-name'),
 				odom  = document.querySelector('.odometer');
 
@@ -133,6 +135,10 @@
 					odom.innerText = dateFns.differenceInCalendarDays(today, theParty.date);
 
 					leadN.classList.remove('d-none');
+
+					if (Math.random() < 0.1) {
+						FEEC.classList.remove('d-none');
+					}
 				}
 
 				yesNo.classList.remove('d-none');
