@@ -39,6 +39,8 @@
 
 			main .lead {
 				font-size: 5vh;
+				line-height: 1;
+				margin-bottom: 0;
 			}
 
 			main .odometer {
@@ -60,8 +62,9 @@
 		<header></header>
 
 		<main role="main" class="container text-center">
-			<h1 class="yesno">???</h1>
-			<p class="lead">Estamos há <span class="odometer">0</span> dias sem festa no IFCH.</p>
+			<h1 class="yesno d-none">Não</h1>
+			<p class="lead-no lead d-none">Estamos há <span class="odometer">0</span> dias sem festa no IFCH.</p>
+			<p class="lead-yes lead d-none">Hoje vai rolar <b class="party-name">0</b>!</p>
 		</main>
 
 		<footer>
@@ -88,9 +91,11 @@
 				}
 			];
 
-			let yesNo = document.querySelector('.yesno');
-			let lead  = document.querySelector('.lead');
-			let odom  = document.querySelector('.odometer');
+			let yesNo = document.querySelector('.yesno'),
+				leadY = document.querySelector('.lead-yes')
+				leadN = document.querySelector('.lead-no'),
+				pName = document.querySelector('.party-name'),
+				odom  = document.querySelector('.odometer');
 
 			let today = dateFns.endOfToday();
 
@@ -115,16 +120,22 @@
 				if (dateFns.isToday(theParty.date)) {
 					yesNo.innerText = 'SIM!';
 
-					let partyName = `<b>${theParty.name}</b>`;
+					let partyHTML = theParty.name;
 					if (theParty.link) {
-						partyName = `<a href="${theParty.link}" target="_blank">${partyName}</a>`;
+						partyHTML = `<a href="${theParty.link}" target="_blank">${partyHTML}</a>`;
 					}
 
-					lead.innerHTML = `Hoje vai rolar ${partyName}!`;
+					pName.innerHTML = partyHTML;
+
+					leadY.classList.remove('d-none');
 				} else {
 					yesNo.innerText = 'NÃO';
 					odom.innerText = dateFns.differenceInCalendarDays(today, theParty.date);
+
+					leadN.classList.remove('d-none');
 				}
+
+				yesNo.classList.remove('d-none');
 
 			});
 		</script>
