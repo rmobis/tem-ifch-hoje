@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.8/themes/odometer-theme-minimal.min.css" integrity="sha256-TzVR91NM2rW+l6d+XuTFNm7Q2my50dH9yJJTPYfR3bI=" crossorigin="anonymous" />
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/brands.css" integrity="sha384-7xAnn7Zm3QC1jFjVc1A6v/toepoG3JXboQYzbM0jrPzou9OFXm/fY6Z/XiIebl/k" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/solid.css" integrity="sha384-TbilV5Lbhlwdyc4RuIV/JhD8NR+BfMrvz4BL5QFa2we1hQu6wvREr3v6XSRfCTRp" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/fontawesome.css" integrity="sha384-ozJwkrqb90Oa3ZNb+yKFW2lToAWYdTiF1vt8JiH5ptTGHTGcN7qdoR1F95e0kYyG" crossorigin="anonymous">
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/date-fns/1.29.0/date_fns.min.js" integrity="sha256-J+IkOQfxSI1XzGtgoazVThPhunb79GLoKjW87erTCpM=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.8/odometer.min.js" integrity="sha256-65R1G5irU1VT+k8L4coqgd3saSvO/Wufson/w+v2Idw=" crossorigin="anonymous"></script>
+
+		<title>Tem IFCH hoje?</title>
+
+		<style>
+			body {
+				min-height: 100vh;
+			}
+
+			main .yesno {
+				font-size: 25vh;
+			}
+
+			main .lead {
+				font-size: 5vh;
+			}
+
+			main .odometer {
+				margin-bottom: .75rem;
+			}
+
+			header,
+			footer {
+				padding: .5rem 0;
+			}
+
+			footer i {
+				color: #EF404D;
+			}
+		</style>
+	</head>
+	<body class="d-flex flex-column justify-content-between">
+		<!-- We keep this here only so the main content will still be properly vertically aligned -->
+		<header></header>
+
+		<main role="main" class="container text-center">
+			<h1 class="yesno">???</h1>
+			<p class="lead">Estamos há <span class="odometer">0</span> dias sem festa no IFCH.</p>
+		</main>
+
+		<footer>
+			<div class="container">
+				<div class="float-left">
+					Veja no
+					<a href="https://github.com/rmobis/tem-ifch-hoje" target="_blank">
+						<i class="fab fa-github text-muted"></i> GitHub
+					</a>
+				</div>
+
+				<div class="float-right">
+					Made with <i class="fas fa-heart heart"></i> by <a href="https://fb.com/r.mobis" target="_blank">Phapha</a>
+				</div>
+			</div>
+		</footer>
+
+		<script>
+			let parties = [
+				{
+					name: 'Festa Junina da CEM',
+					date: '28/06/2018',
+					link: null
+				},
+				{
+					name: 'Festa Junina da CEM 2',
+					date: '28/05/2018',
+					link: null
+				}
+			];
+
+			let yesNo = document.querySelector('.yesno');
+			let lead  = document.querySelector('.lead');
+			let odom  = document.querySelector('.odometer');
+
+			let today = dateFns.endOfToday();
+
+			parties = parties.map((v) => {
+				v.date = dateFns.parse(v.date.split('/').reverse().join('-'));
+				return v;
+			});
+
+			parties = parties.sort((v, vv) => {
+				return dateFns.compareDesc(v.date, vv.date);
+			});
+
+			parties = parties.filter((v, k) => {
+				return dateFns.isBefore(v.date, today);
+			});
+
+			console.log(parties)
+
+			document.addEventListener("DOMContentLoaded", function () {
+				let theParty = parties[0];
+
+				if (dateFns.isToday(theParty.date)) {
+					yesNo.innerText = 'SIM!';
+
+					let partyName = `<b>${theParty.name}</b>`;
+					if (theParty.link) {
+						partyName = `<a href="${theParty.link}" target="_blank">${partyName}</a>`;
+					}
+
+					lead.innerHTML = `Hoje vai rolar ${partyName}!`;
+				} else {
+					yesNo.innerText = 'NÃO';
+					odom.innerText = dateFns.differenceInCalendarDays(today, theParty.date);
+				}
+
+			});
+		</script>
+	</body>
+</html>
