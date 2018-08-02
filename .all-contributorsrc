@@ -1,0 +1,33 @@
+{
+  "projectName": "tem-ifch-hoje",
+  "projectOwner": "rmobis",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "rmobis",
+      "name": "Raphael Mobis Tacla",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/2119933?v=4",
+      "profile": "https://raphseller.com",
+      "contributions": [
+        "code",
+        "doc"
+      ]
+    },
+    {
+      "login": "joeylrnz",
+      "name": "Joseph Lorenzo",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/13355856?v=4",
+      "profile": "https://github.com/joeylrnz",
+      "contributions": [
+        "doc",
+        "ideas"
+      ]
+    }
+  ]
+}
