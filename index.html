@@ -132,6 +132,8 @@
 					isAnniv = Math.abs(dateFns.differenceInCalendarDays(possAnniv, today)) < 2;
 				}
 
+				isAnniv = true;
+
 				if (dateFns.isToday(theParty.date)) {
 					yesNo.innerText = 'SIM!';
 
