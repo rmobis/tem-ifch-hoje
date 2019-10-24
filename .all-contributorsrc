@@ -28,6 +28,16 @@
         "doc",
         "ideas"
       ]
+    },
+    {
+      "login": "cienijr",
+      "name": "José Carlos Cieni Júnior",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/7058244?v=4",
+      "profile": "https://github.com/cienijr",
+      "contributions": [
+        "content"
+      ]
     }
-  ]
+  ],
+  "contributorsPerLine": 7
 }
