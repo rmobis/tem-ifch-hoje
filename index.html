@@ -68,7 +68,7 @@
 			<h1 class="yesno d-none">Não</h1>
 			<p class="lead-no lead d-none">Estamos há <span class="odometer">0</span> dias sem festa no IFCH.</p>
 			<p class="lead-yes lead d-none">Hoje vai rolar <b class="party-name">0</b>!</p>
-			<p class="feec text-small d-none">Que tal dar uma passadinha na FEEC?</p>
+			<p class="sub-text text-small d-none">O próximo rolê será no dia <b class="next-party">0</b>.</p>
 		</main>
 
 		<footer>
@@ -128,29 +128,30 @@
 			let yesNo = document.querySelector('.yesno'),
 				leadY = document.querySelector('.lead-yes'),
 				leadN = document.querySelector('.lead-no'),
-				FEEC  = document.querySelector('.feec'),
+				subTx = document.querySelector('.sub-text'),
 				pName = document.querySelector('.party-name'),
+				pNext = document.querySelector('.next-party'),
 				odom  = document.querySelector('.odometer');
 
 			let today = dateFns.endOfToday();
 
-			parties = parties.map((v) => {
+			fParties = parties.map((v) => {
 				v.date = dateFns.parse(v.date.split('/').reverse().join('-'));
 				return v;
 			});
 
-			parties = parties.sort((v, vv) => {
+			fParties = fParties.sort((v, vv) => {
 				return dateFns.compareDesc(v.date, vv.date);
 			});
 
-			parties = parties.filter((v, k) => {
+			fParties = fParties.filter((v, k) => {
 				return dateFns.isBefore(v.date, today);
 			});
 
-			console.log(parties)
+			console.log(parties, fParties);
 
 			document.addEventListener("DOMContentLoaded", function () {
-				let theParty = parties[0];
+				let theParty = fParties[0];
 
 				let isAnniv = false;
 				for (let possAnniv = theParty.date; dateFns.differenceInMonths(possAnniv, today) < 1; possAnniv = dateFns.addYears(possAnniv, 1)) {
@@ -186,8 +187,9 @@
 						document.body.appendChild(f);
 					}
 
-					if (Math.random() < 0.1) {
-						FEEC.classList.remove('d-none');
+					if (fParties.length < parties.length) {
+						subTx.classList.remove('d-none');
+						pNext.innerHTML = dateFns.format(parties[fParties.length].date, 'DD/MM/YYYY');
 					}
 				}
 
