@@ -143,19 +143,13 @@
 			let today = dateFns.endOfToday();
 
 			fParties = parties.map((v) => {
+				// I dunno but I feel like converting these here instead of
+				// just making a date object from the get go is just a bit dumb
 				v.date = dateFns.parse(v.date.split('/').reverse().join('-'));
 				return v;
-			});
-
-			fParties = fParties.sort((v, vv) => {
-				return dateFns.compareDesc(v.date, vv.date);
-			});
-
-			fParties = fParties.filter((v, k) => {
-				return dateFns.isBefore(v.date, today);
-			});
-
-			console.log(parties, fParties);
+			})
+			.sort((v, vv) => dateFns.compareDesc(v.date, vv.date))
+			.filter((v) => dateFns.isBefore(v.date, today));
 
 			document.addEventListener("DOMContentLoaded", function () {
 				let theParty = fParties[0];
