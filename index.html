@@ -171,7 +171,6 @@
 					isAnniv = Math.abs(dateFns.differenceInCalendarDays(possAnniv, today)) < 2;
 				}
 
-
 				if (dateFns.isToday(theParty.date)) {
 					yesNo.innerText = 'SIM!';
 
@@ -183,6 +182,8 @@
 					pName.innerHTML = partyHTML;
 
 					leadY.classList.remove('d-none');
+
+					confetti();
 				} else {
 					yesNo.innerText = 'NÃO';
 					odom.innerText = dateFns.differenceInCalendarDays(today, theParty.date);
