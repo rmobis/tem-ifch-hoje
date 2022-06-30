@@ -132,6 +132,18 @@
 				}
 			];
 
+			function confetti(n = 150) {
+				var f = document.createDocumentFragment();
+
+				for (let i = 0; i <= n; i++) {
+					var c = document.createElement('div');
+					c.className = `confetti-${i}`;
+					f.appendChild(c);
+				}
+
+				document.body.appendChild(f);
+			}
+
 			let yesNo = document.querySelector('.yesno'),
 				leadY = document.querySelector('.lead-yes'),
 				leadN = document.querySelector('.lead-no'),
@@ -159,9 +171,6 @@
 					isAnniv = Math.abs(dateFns.differenceInCalendarDays(possAnniv, today)) < 2;
 				}
 
-				// confetti override
-				const params = Object.fromEntries((new URLSearchParams(window.location.search)).entries());
-				isAnniv = isAnniv || params.hasOwnProperty('forceConfetti');
 
 				if (dateFns.isToday(theParty.date)) {
 					yesNo.innerText = 'SIM!';
@@ -181,15 +190,13 @@
 					leadN.classList.remove('d-none');
 
 					if (isAnniv) {
-						var f = document.createDocumentFragment();
-
-						for (let i = 0; i <= 150; i++) {
-							var c = document.createElement('div');
-							c.className = `confetti-${i}`;
-							f.appendChild(c);
+						confetti(25);
+					} else {
+						// confetti override
+						const params = Object.fromEntries((new URLSearchParams(window.location.search)).entries());
+						if (params.hasOwnProperty('confetti')) {
+							confetti();
 						}
-
-						document.body.appendChild(f);
 					}
 
 					if (fParties.length < parties.length) {
