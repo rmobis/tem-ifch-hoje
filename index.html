@@ -166,10 +166,7 @@
 			document.addEventListener("DOMContentLoaded", function () {
 				let theParty = fParties[0];
 
-				let isAnniv = false;
-				for (let possAnniv = theParty.date; dateFns.differenceInMonths(possAnniv, today) < 1; possAnniv = dateFns.addYears(possAnniv, 1)) {
-					isAnniv = Math.abs(dateFns.differenceInCalendarDays(possAnniv, today)) < 2;
-				}
+				let isAnniv = dateFns.differenceInCalendarDays(today, theParty.date) % 365 === 0;
 
 				if (dateFns.isToday(theParty.date)) {
 					yesNo.innerText = 'SIM!';
