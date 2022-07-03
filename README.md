@@ -15,6 +15,7 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds
     <td align="center"><a href="https://github.com/joeylrnz"><img src="https://avatars2.githubusercontent.com/u/13355856?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Joseph Lorenzo</b></sub></a><br /><a href="https://github.com/rmobis/tem-ifch-hoje/commits?author=joeylrnz" title="Documentation">📖</a> <a href="#ideas-joeylrnz" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://github.com/cienijr"><img src="https://avatars1.githubusercontent.com/u/7058244?v=4?s=100" width="100px;" alt=""/><br /><sub><b>José Carlos Cieni Júnior</b></sub></a><br /><a href="#content-cienijr" title="Content">🖋</a></td>
     <td align="center"><a href="https://github.com/flaitt"><img src="https://avatars.githubusercontent.com/u/31012880?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Fabio Flaitt</b></sub></a><br /><a href="#financial-flaitt" title="Financial">💵</a></td>
+    <td align="center"><a href="https://github.com/gpspelle"><img src="https://avatars.githubusercontent.com/u/23614373?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Gabriel Pellegrino da Silva</b></sub></a><br /><a href="https://github.com/rmobis/tem-ifch-hoje/commits?author=gpspelle" title="Code">💻</a></td>
   </tr>
 </table>
 
