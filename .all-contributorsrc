@@ -46,8 +46,18 @@
       "contributions": [
         "financial"
       ]
+    },
+    {
+      "login": "gpspelle",
+      "name": "Gabriel Pellegrino da Silva",
+      "avatar_url": "https://avatars.githubusercontent.com/u/23614373?v=4",
+      "profile": "https://github.com/gpspelle",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
-  "commitConvention": "none"
+  "commitConvention": "none",
+  "skipCi": true
 }
