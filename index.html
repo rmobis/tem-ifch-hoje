@@ -97,7 +97,7 @@
 
 		<main role="main" class="container text-center">
 			<h1 class="yesno d-none">Não</h1>
-			<p class="lead-no lead d-none">Mas vai ter <a href="https://www.instagram.com/p/ChVbnE7PFg1" target="_blank">Bicuda no DCE</a></p>
+			<p class="lead-no lead d-none">Estamos há <span class="odometer">0</span> dias sem festa no IFCH.</p>
 			<p class="lead-yes lead d-none">Hoje vai rolar <b class="party-name">0</b>!</p>
 			<p class="sub-text text-small d-none">O próximo rolê será no dia <b class="next-party">0</b>.</p>
 		</main>
@@ -205,7 +205,7 @@
 					confetti();
 				} else {
 					yesNo.innerText = 'NÃO';
-					// odom.innerText = dateFns.differenceInCalendarDays(today, theParty.date);
+					odom.innerText = dateFns.differenceInCalendarDays(today, theParty.date);
 
 					leadN.classList.remove('d-none');
 
