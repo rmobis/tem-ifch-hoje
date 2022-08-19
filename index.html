@@ -39,12 +39,36 @@
 				}
 			}
 
-			body {
-				min-height: 100vh;
+			main .yesno {
+				font-size: 520px;
 			}
 
-			main .yesno {
-				font-size: min(25vw, 25vh);
+			@media (max-width: 1199.98px) {
+				main .yesno {
+					font-size: 420px;
+				}
+			}
+
+			@media (max-width: 991.98px) {
+				main .yesno {
+					font-size: 300px;
+				}
+			}
+
+			@media (max-width: 767.98px) {
+				main .yesno {
+					font-size: 230px;
+				}
+			}
+
+			@media (max-width: 575.98px) {
+				main .yesno {
+					font-size: min(230px, calc(45vw - 30px));
+				}
+			}
+
+			body {
+				min-height: 100vh;
 			}
 
 			main .lead {
