@@ -35,12 +35,12 @@
 			@media (prefers-color-scheme: dark) {
 				body {
 					color: #d4cfc7;
-					background-color: #191a1b;
+					background-color: #dc3545;
 				}
 			}
 
 			main .yesno {
-				font-size: 520px;
+				font-size: 450px;
 			}
 
 			@media (max-width: 1199.98px) {
@@ -81,6 +81,11 @@
 				margin-bottom: .75rem;
 			}
 
+			main .sub-text {
+				margin-top: .75rem;
+				font-size: 2em;
+			}
+
 			header,
 			footer {
 				padding: .5rem 0;
@@ -96,8 +101,8 @@
 		<header></header>
 
 		<main role="main" class="container text-center">
-			<h1 class="yesno d-none">Não</h1>
-			<p class="lead-no lead d-none">Estamos há <span class="odometer">0</span> dias sem festa no IFCH.</p>
+			<h1 class="yesno d-none">Não!</h1>
+			<p class="lead-no lead d-none">Estamos há <span class="odometer">0</span> dias</br> sem festa no IFCH.</p>
 			<p class="lead-yes lead d-none">Hoje vai rolar <b class="party-name">0</b>!</p>
 			<p class="sub-text text-small d-none">O próximo rolê será no dia <b class="next-party">0</b>.</p>
 		</main>
@@ -153,6 +158,16 @@
 					name: 'Ocupar e Enegrecer: Basta de Violência Policial!',
 					date: '30/06/2022',
 					link: '/oebvp.jpg'
+				},
+				{
+					name: '???',
+					date: '21/10/2022',
+					link: null
+				},
+				{
+					name: 'Ocupar e Enegrecer: Basta de Violência Policial!',
+					date: '03/11/2022',
+					link: null
 				}
 			];
 
@@ -204,7 +219,7 @@
 
 					confetti();
 				} else {
-					yesNo.innerText = 'NÃO';
+					yesNo.innerText = 'NÃO!';
 					odom.innerText = dateFns.differenceInCalendarDays(today, theParty.date);
 
 					leadN.classList.remove('d-none');
