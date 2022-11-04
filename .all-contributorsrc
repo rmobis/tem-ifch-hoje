@@ -55,6 +55,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "gumbarros",
+      "name": "Gustavo Mauricio de Barros",
+      "avatar_url": "https://avatars.githubusercontent.com/u/52143624?v=4",
+      "profile": "https://github.com/gumbarros",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,

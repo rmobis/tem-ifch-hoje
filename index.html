@@ -97,7 +97,7 @@
 
 		<main role="main" class="container text-center">
 			<h1 class="yesno d-none">Não</h1>
-			<p class="lead-no lead d-none">Estamos há <span class="odometer">0</span> dias sem festa no IFCH.</p>
+			<p class="lead-no lead d-none">Estamos há <span class="odometer">0</span> <span class="days">dias</span> sem festa no IFCH.</p>
 			<p class="lead-yes lead d-none">Hoje vai rolar <b class="party-name">0</b>!</p>
 			<p class="sub-text text-small d-none">O próximo rolê será no dia <b class="next-party">0</b>.</p>
 		</main>
@@ -147,12 +147,12 @@
 				{
 					name: 'A Gente Que Lute',
 					date: '22/11/2019',
-					link: '/agql.jpeg'
+					link: 'assets/agql.jpeg'
 				},
 				{
 					name: 'Ocupar e Enegrecer: Basta de Violência Policial!',
 					date: '30/06/2022',
-					link: '/oebvp.jpg'
+					link: 'assets/oebvp.jpg'
 				},
 				{
 					name: '???',
@@ -184,7 +184,8 @@
 				subTx = document.querySelector('.sub-text'),
 				pName = document.querySelector('.party-name'),
 				pNext = document.querySelector('.next-party'),
-				odom  = document.querySelector('.odometer');
+				odom  = document.querySelector('.odometer'),
+				days  = document.querySelector('.days');
 
 			let today = dateFns.endOfToday();
 
@@ -215,7 +216,13 @@
 					confetti();
 				} else {
 					yesNo.innerText = 'NÃO';
-					odom.innerText = dateFns.differenceInCalendarDays(today, theParty.date);
+
+					let difference = dateFns.differenceInCalendarDays(today, theParty.date);
+
+					odom.innerText = difference;
+
+					if(difference == 1)
+						days.innerText = "dia"
 
 					leadN.classList.remove('d-none');
 
